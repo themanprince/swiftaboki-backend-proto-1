@@ -1,4 +1,6 @@
 function cors(req, res, next) {
+	
+	console.log("in cors middleware function");
 	//setting this kini for all requests... cus of non-preflighted ones
 	res.setHeader("Access-Control-Allow-Credentials", "true");
 	res.setHeader("Access-Control-Allow-Origin", /*using specific url so that cookies will be allowed*/`http://localhost:3000`);
@@ -11,7 +13,7 @@ function cors(req, res, next) {
 	    res.writeHead(204);
 	    res.end();
 	} else
-		next(req, res);
+		next();
 }
 
 module.exports = cors;
